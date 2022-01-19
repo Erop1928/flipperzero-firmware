@@ -36,9 +36,15 @@ char* iButtonKey::get_name() {
 void iButtonKey::set_type(iButtonKeyType _key_type) {
     type = _key_type;
 }
+void iButtonKey::set_ds_type(DallasKeyType _ds_type) {
+    ds_type = _ds_type;
+}
 
 iButtonKeyType iButtonKey::get_key_type() {
     return type;
+}
+DallasKeyType iButtonKey::get_ds_type() {
+    return ds_type;
 }
 
 const char* iButtonKey::get_key_type_string_by_type(iButtonKeyType key_type) {

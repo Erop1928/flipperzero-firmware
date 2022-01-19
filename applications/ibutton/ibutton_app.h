@@ -22,6 +22,7 @@
 #include "scene/ibutton_scene_select_key.h"
 #include "scene/ibutton_scene_add_type.h"
 #include "scene/ibutton_scene_add_value.h"
+#include "scene/ibutton_scene_ds199x_menu.h"
 
 #include "helpers/key_worker.h"
 
@@ -62,6 +63,7 @@ public:
         SceneSelectKey,
         SceneAddType,
         SceneAddValue,
+        SceneDS199xMenu,
     };
 
     iButtonAppViewManager* get_view_manager();
@@ -121,6 +123,7 @@ private:
         {Scene::SceneSelectKey, new iButtonSceneSelectKey()},
         {Scene::SceneAddType, new iButtonSceneAddType()},
         {Scene::SceneAddValue, new iButtonSceneAddValue()},
+        {Scene::SceneDS199xMenu, new iButtonSceneDS199xMenu()},
     };
 
     KeyWorker* key_worker;

@@ -15,7 +15,10 @@ public:
     char* get_name();
 
     void set_type(iButtonKeyType key_type);
+    void set_ds_type(DallasKeyType ds_type);
+
     iButtonKeyType get_key_type();
+    DallasKeyType get_ds_type();
 
     const char* get_key_type_string_by_type(iButtonKeyType key_type);
     bool get_key_type_by_type_string(const char* type_string, iButtonKeyType* key_type);
@@ -28,4 +31,5 @@ private:
     char name[IBUTTON_KEY_NAME_SIZE] = {0};
 
     iButtonKeyType type = iButtonKeyType::KeyDallas;
+    DallasKeyType ds_type = DallasKeyType::Ds1990;
 };

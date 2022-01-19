@@ -16,12 +16,16 @@ KeyReader::Error KeyReader::read(iButtonKey* key) {
         case iButtonKeyType::KeyDallas:
             if(verify_key(key_type, tmp_key_data, 8)) {
                 if(maxim_crc8(tmp_key_data, 8) == 0) {
+                    result = KeyReader::Error::OK;
                     if(tmp_key_data[0] == 0x01) {
-                        result = KeyReader::Error::OK;
-                    } else {
-                        result = KeyReader::Error::NOT_ARE_KEY;
+                      key->set_ds_type(DallasKeyType::Ds1990);
+
                     }
-                } else {
+                    else if(tmp_key_data[0] == 0x0A){
+                      key->set_ds_type(DallasKeyType::Ds1995);
+                    }
+                }
+                else {
                     result = KeyReader::Error::CRC_ERROR;
                 }
             }
